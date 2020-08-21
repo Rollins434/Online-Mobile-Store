@@ -1,0 +1,145 @@
+﻿@model MobileStore.Models.ViewModels.HomeIndexViewModel
+@using PagedList;
+@using PagedList.Mvc;
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="~/Content/Layout.css" rel="stylesheet" />
+<link href="~/Content/index.css" rel="stylesheet" />
+
+<script src="https://kit.fontawesome.com/3c392dc392.js" crossorigin="anonymous"></script>
+<!------ Include the above in your HEAD tag ---------->
+@if (Session["user"] == null)
+{
+    <p>@Html.ActionLink("Login Please", "Login", "Auth")</p>
+}
+else
+{
+    <h4>Welcome, @Session["user"]</h4>
+    <hr style=" border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);"/>
+
+        <h6> @Html.ActionLink("Logout", "LogOut", "Auth")</h6>
+
+
+
+
+
+
+
+<div id="themeSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:350px; width:100%;" src="../images/image2.jpg" alt="first slide" />
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:350px; width:100%;" src="../images/image2.jpg" alt="second slide" />
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:350px; width:100%;" src="../images/image2.jpg" />
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+
+
+</div>
+
+<div class="olContent f1">
+    <h2 style="color:black;">
+        Search Product
+    </h2>
+</div>
+<form method="post">
+    <div class="olSearch fr">
+        <input type="text" placeholder="Search here" name="search" class="inputComn  form-control" />
+        <div class="searchIcon">
+            <button type="button" class="searchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <strong>Our Products</strong>
+        </div>
+    </div>
+
+</div>
+<div class="row product-container">
+    @foreach (var i in Model.Products)
+    {
+
+
+<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+    <div class="thumbnail product-item" style="height:300px">
+
+        <img class="img-responsive" title="Click to View Product detail"
+             style="cursor:pointer;height:160px;width:100%"
+             src="~/ProductImages/@i.ProductImage" />
+
+        <div class="caption">
+            <h5>@i.ProductName</h5>
+            <p>@i.Price</p>
+            <h4>
+                @if (i.Quantity > 0)
+                {
+                    using (Html.BeginForm("AddToCart", "Home", new { productId = i.ProductId }, FormMethod.Post))
+                    {
+<button type="submit" class="pull-right"><i class="fa fa-shopping-cart" style="font-size:14px;color:black"></i></button> }
+
+<p>Available</p> }
+                else
+                {
+<span>Not Available</span>}
+            </h4>
+            <div class="product-item-badge">
+                @if (i.IsFeatured == true)
+                {
+<p>New</p> }
+                else
+                {
+<p>Old</p>                }
+            </div>
+        </div>
+    </div>
+</div>}
+
+
+</div>
+<div class="container">
+    @Html.PagedListPager(Model.Products, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }))
+</div>
+
+}
+
+
+

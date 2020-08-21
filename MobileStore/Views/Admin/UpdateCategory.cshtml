@@ -1,0 +1,41 @@
+﻿@model MobileStore.Models.CategoryDetail
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="container-fluid">
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Category</li>
+        <li class="breadcrumb-item active">Add New Category</li>
+    </ol>
+  
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+           Add New Category
+            <div class="card-body">
+                @using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(m => m.CategoryId)
+                    <div class="form-group">
+
+                        @Html.LabelFor(m => m.CategoryName)
+                       <input type="text" placeholder="Enter New Category" class="form-control" required/>
+
+                    </div>
+                    <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                    <button class=" btn btn-primary">Submit</button>
+                }
+
+            </div>
+
+        </div>
+        </div>
+
+    </div>

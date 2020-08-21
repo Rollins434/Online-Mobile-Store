@@ -1,0 +1,60 @@
+﻿@model List<MobileStore.DatabaseFiles.Tbl_Category>
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="padding-left:30px;">Category</h3>
+
+
+<div class="container-fluid">
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">@ViewBag.Title</li>
+    </ol>
+    <div class="card mb-4">
+
+
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Categories Detail
+            <div style="float:right; background-color:black; border-radius:50%; opacity:40;">
+                <a class="btn btn info pull-right" style="background-color:white;" href="../Admin/AddCategory"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add New </a>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Category Name</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var i in Model)
+                        {
+                            <tr>
+                                <td>@(Model.IndexOf(i)+1)</td>
+                                <td>@i.CategoryName</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "CategoryEdit", new { categoryId = i.CategoryId })
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

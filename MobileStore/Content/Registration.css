@@ -1,0 +1,23 @@
+﻿body {
+    background-color:grey;
+
+}
+
+#RegistrationLayout{
+background-color:white;
+padding: 40px,50px;
+margin-top:10%;
+margin-left:20%;
+
+}
+#reg{
+    
+    padding-left:50px;
+    
+}
+#image{
+    border-left: 1px solid #ddd;
+}
+h3{
+    padding-left:30px;
+}
