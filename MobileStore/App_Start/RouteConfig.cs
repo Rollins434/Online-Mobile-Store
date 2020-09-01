@@ -16,7 +16,7 @@ namespace MobileStore
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Auth", action = "Register", id = UrlParameter.Optional }
+                defaults: new { controller = "Auth", action = "Land", id = UrlParameter.Optional }
             );
         }
     }

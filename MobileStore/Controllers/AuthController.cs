@@ -20,6 +20,10 @@ namespace MobileStore.Controllers
       
             
         }
+        public ActionResult Land()
+        {
+            return View();
+        }
         public ActionResult Register(User user)
         {
             if(context.Users.Any(e=>e.Email == user.Email))

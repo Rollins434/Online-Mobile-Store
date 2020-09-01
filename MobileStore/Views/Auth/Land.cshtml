@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        #main {
+            text-align: center;
+            padding-top: 25%;
+           /* text-shadow: 0px 4px 3px rgba(161, 69, 69, 0.699);*/
+        }
+
+        body {
+            
+            background-image: url('../../images/backimage.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        h1 {
+            font-style: normal;
+            color: rgba(216, 216, 203, 0.856);
+            font-weight: 500;
+            font-size: 4em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h3,h2 {
+            color: white;
+        }
+      
+
+        hr {
+            width: 500px;
+            border: 0.5px solid #f8f8f8;
+        }
+    </style>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="main">
+
+                    <h1>Online Mobile Store</h1>
+                    <h3>All your mobile needs ends here.</h3>
+                    <hr>
+
+                    @*<h2 style="font-size:xx-large">
+                        @Html.ActionLink("Get Started", "Register", "Auth")
+                    </h2>*@
+                    <a href="../Auth/Register" class="btn btn-default">Start Shopping!</a>
+                     
+                      
+                        
+                      
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
