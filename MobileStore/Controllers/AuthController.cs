@@ -24,6 +24,7 @@ namespace MobileStore.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Register(User user)
         {
             if(context.Users.Any(e=>e.Email == user.Email))

@@ -466,9 +466,10 @@
     <Content Include="Views\Home\CheckOut.cshtml" />
     <Content Include="Views\Home\CheckOutDetails.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\Registerold.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Land.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
